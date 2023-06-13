@@ -1,11 +1,12 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 440px;
     min-height: 600px;
     gap: 16px;
     box-shadow: 0px 6px 16px #5a7abe;
     padding: 16px;
+    margin: 0 auto;
 }
 
 .controls {
@@ -16,7 +17,24 @@
 }
 
 .button {
+    font: 14px/1.5 var(--font-golos-regular);
     width: 100%;
     background: none;
     padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    border-color: #1976d2;
+    opacity: 1;
+    border-width: 1px;
+    border-style: solid;
+    &_active {
+        background-color: #1976d2;
+        border-color: #1976d2;
+        color: white;
+        box-shadow: none;
+    }
+    &:hover {
+        opacity: var(--opacity);
+        transition: var(--opacity-transition);
+    }    
 }

@@ -2,6 +2,7 @@ import { TextField } from '@mui/material'
 import * as yup from "yup";
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
+import { v4 as uuidv4 } from 'uuid'
 import { useAppDispatch } from '../../store/store';
 import { addTodo } from '../../store/todos.slice';
 
@@ -38,7 +39,6 @@ export const InputForm = () => {
                 control={control}
                 render={({ field }) => (
                     <TextField
-                        autoFocus
                         fullWidth
                         label='Что нужно сделать?'
                         error={!!errors?.todo}

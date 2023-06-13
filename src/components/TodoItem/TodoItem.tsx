@@ -1,7 +1,8 @@
-import { FormControlLabel, Checkbox } from '@mui/material'
+import { FormControlLabel, Checkbox, checkboxClasses } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import { ITodoItem } from '../../types/types'
 import { useAppDispatch } from '../../store/store'
-import { toggleTodo } from '../../store/todos.slice'
+import { removeTodo, toggleTodo } from '../../store/todos.slice'
 import s from './TodoItem.module.scss'
 
 interface ITodoItemProps {
@@ -9,20 +10,31 @@ interface ITodoItemProps {
 }
 export const TodoItem = ({ todo }: ITodoItemProps) => {
     const dispatch = useAppDispatch()
-    const handleClick = () => {
+    const handleCheckMark = () => {
         dispatch(toggleTodo(todo.uuid))
+    }
+    const handleDelete = () => {
+        dispatch(removeTodo(todo.uuid))
     }
     return (
         <div className={s.item}>
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        checked={todo.isDone}
-                        onChange={handleClick}
-                    />
-                }
-                label={<p>{todo.text}</p>}
-            />
+            <div className={s.wrapper}>
+                <FormControlLabel
+                    sx={{ width: '100%' }}
+                    control={
+                        <Checkbox
+                            checked={todo.isDone}
+                            onChange={handleCheckMark}                            
+                        />
+                    }
+                    label={<p className={s.label}>{todo.text}</p>}
+                />
+            </div>
+            <div className={s.wrapper}>
+                <button className={s.button} onClick={handleDelete}>
+                    <DeleteIcon sx={{color: '#1976d2'}}/>
+                </button>
+            </div>
         </div>
     )
 }

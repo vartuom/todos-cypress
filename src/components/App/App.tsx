@@ -10,12 +10,33 @@ export const App = () => {
 
     return (
         <div className={s.wrapper}>
-            <InputForm />
+            <InputForm />      
             <nav>
                 <ul className={s.controls}>
-                    <li><button className={s.button} onClick={() => setTab('both')}>Все</button></li>
-                    <li><button className={s.button} onClick={() => setTab('finished')}>Завершенные</button></li>
-                    <li><button className={s.button} onClick={() => setTab('pending')}>Активные</button></li>
+                    <li>
+                        <button
+                            className={`${s.button} ${tab === 'both' && s.button_active}`}
+                            onClick={() => setTab('both')}
+                        >
+                            {`Все (${todos.length})`}
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className={`${s.button} ${tab === 'finished' && s.button_active}`}
+                            onClick={() => setTab('finished')}
+                        >
+                            {`Завершенные (${todos.filter(todo => todo.isDone).length})`}
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className={`${s.button} ${tab === 'pending' && s.button_active}`}
+                            onClick={() => setTab('pending')}
+                        >
+                            {`Активные (${todos.filter(todo => !todo.isDone).length})`}
+                        </button>
+                    </li>
                 </ul>
             </nav>
             {tab === 'both' && <TodoList todos={todos} />}

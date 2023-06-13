@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-height: 600px;
+    gap: 16px;
+    box-shadow: 0px 6px 16px #5a7abe;
+    padding: 16px;
+}
+
+.controls {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.button {
+    width: 100%;
+    background: none;
+    padding: 4px;
+}

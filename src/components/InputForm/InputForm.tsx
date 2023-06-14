@@ -41,6 +41,8 @@ export const InputForm = () => {
                 control={control}
                 render={({ field }) => (
                     <TextField
+                        inputProps={{ "data-cy": "inputTextField" }}
+                        autoFocus
                         fullWidth
                         label='Что нужно сделать?'
                         error={!!errors?.todo}
@@ -51,8 +53,12 @@ export const InputForm = () => {
                     />
                 )}
             />
-            <button type='submit' disabled={!isValid} className={`${s.submitButton} ${!isValid && s.submitButton_disabled}`}>
-                <PlaylistAddIcon sx={{fontSize: '42px'}}/>
+            <button
+                data-cy='submitButton'
+                type='submit'
+                disabled={!isValid}
+                className={`${s.submitButton} ${!isValid && s.submitButton_disabled}`}>
+                <PlaylistAddIcon sx={{ fontSize: '42px' }} />
             </button>
         </form>
     )

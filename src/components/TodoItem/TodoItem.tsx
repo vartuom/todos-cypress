@@ -24,15 +24,21 @@ export const TodoItem = ({ todo }: ITodoItemProps) => {
                     control={
                         <Checkbox
                             checked={todo.isDone}
-                            onChange={handleCheckMark}                            
+                            onChange={handleCheckMark}
                         />
                     }
-                    label={<p className={`${s.label} ${todo.isDone && s.label_type_done}`}>{todo.text}</p>}
+                    label={
+                        <p
+                            className={`${s.label} ${todo.isDone && s.label_type_done}`}
+                            data-cy="todo-label">
+                            {todo.text}
+                        </p>
+                    }
                 />
             </div>
             <div className={s.wrapper}>
-                <button className={s.button} onClick={handleDelete}>
-                    <DeleteIcon sx={{color: '#1976d2'}}/>
+                <button className={s.button} onClick={handleDelete} data-cy="delete-button">
+                    <DeleteIcon sx={{ color: '#1976d2' }} />
                 </button>
             </div>
         </div>

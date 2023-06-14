@@ -13,8 +13,7 @@ export const InputForm = () => {
 
     const schema = yup.object({
         todo: yup
-            .string()
-            .required("Это обязательное поле")
+            .string().trim().required("Это обязательное поле")
     });
     const {
         reset,

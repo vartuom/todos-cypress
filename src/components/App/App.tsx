@@ -42,8 +42,8 @@ export const App = () => {
                 </ul>
             </nav>
             {tab === 'both' && <TodoList todos={todos} />}
-            {tab === 'finished' && <TodoList todos={todos.filter((todo) => todo.isDone === true)} />}
-            {tab === 'pending' && <TodoList todos={todos.filter((todo) => todo.isDone === false)} />}
+            {tab === 'finished' && <TodoList todos={todos.filter((todo) => todo.isDone)} />}
+            {tab === 'pending' && <TodoList todos={todos.filter((todo) => !todo.isDone)} />}
             {(tab === 'finished' || tab === 'both') && todos.filter(todo => todo.isDone).length > 0
                 && <button className={s.clearButton} onClick={() => dispatch(dropComplited())}>
                     Удалить сделанные

@@ -26,7 +26,6 @@ export const todosSlice = createSlice({
             state.todos[index].isDone = !state.todos[index].isDone
         },
         removeTodo(state, action) {
-            // state.todos = state.todos.filter(todo => todo.uuid !== action.payload.uuid);
             state.todos = state.todos.filter(todo => todo.uuid !== action.payload);
         },
         dropComplited(state) {

@@ -1,4 +1,4 @@
-import { FormControlLabel, Checkbox, checkboxClasses } from '@mui/material'
+import { FormControlLabel, Checkbox } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { ITodoItem } from '../../types/types'
 import { useAppDispatch } from '../../store/store'

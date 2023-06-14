@@ -2,7 +2,6 @@ import { TextField } from '@mui/material'
 import * as yup from "yup";
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
-import { v4 as uuidv4 } from 'uuid'
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
 import { useAppDispatch } from '../../store/store';
 import { addTodo } from '../../store/todos.slice';

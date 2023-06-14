@@ -29,7 +29,10 @@ export const todosSlice = createSlice({
             // state.todos = state.todos.filter(todo => todo.uuid !== action.payload.uuid);
             state.todos = state.todos.filter(todo => todo.uuid !== action.payload);
         },
+        dropComplited(state) {
+            state.todos = state.todos.filter(todo => !todo.isDone);
+        }
     },
 });
-export const { addTodo, removeTodo, toggleTodo } = todosSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, dropComplited } = todosSlice.actions;
 export default todosSlice.reducer;

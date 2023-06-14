@@ -3,8 +3,10 @@ import * as yup from "yup";
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { v4 as uuidv4 } from 'uuid'
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd'
 import { useAppDispatch } from '../../store/store';
 import { addTodo } from '../../store/todos.slice';
+import s from './InputForm.module.scss'
 
 export const InputForm = () => {
     const dispatch = useAppDispatch()
@@ -13,7 +15,7 @@ export const InputForm = () => {
         todo: yup
             .string()
             .required("Это обязательное поле")
-    });    
+    });
     const {
         reset,
         control,
@@ -27,13 +29,13 @@ export const InputForm = () => {
         mode: "onBlur",
     });
 
-    const onSubmit: SubmitHandler<{todo: string}> = (data) => {
+    const onSubmit: SubmitHandler<{ todo: string }> = (data) => {
         dispatch(addTodo(data.todo))
         reset()
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
             <Controller
                 name="todo"
                 control={control}
@@ -49,6 +51,9 @@ export const InputForm = () => {
                     />
                 )}
             />
+            <button type='submit' disabled={!isValid} className={`${s.submitButton} ${!isValid && s.submitButton_disabled}`}>
+                <PlaylistAddIcon sx={{fontSize: '42px'}}/>
+            </button>
         </form>
     )
 }

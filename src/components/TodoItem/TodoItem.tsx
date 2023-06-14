@@ -27,7 +27,7 @@ export const TodoItem = ({ todo }: ITodoItemProps) => {
                             onChange={handleCheckMark}                            
                         />
                     }
-                    label={<p className={s.label}>{todo.text}</p>}
+                    label={<p className={`${s.label} ${todo.isDone && s.label_type_done}`}>{todo.text}</p>}
                 />
             </div>
             <div className={s.wrapper}>

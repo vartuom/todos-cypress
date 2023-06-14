@@ -16,6 +16,11 @@
         opacity: var(--opacity);
         transition: var(--opacity-transition);
     }
+    &_type_done {
+        opacity: var(--opacity);
+        text-decoration: line-through;
+        opacity: var(--opacity);
+    }
 }
 .button {
     cursor: pointer;
